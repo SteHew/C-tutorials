@@ -20,7 +20,7 @@ namespace COMP6211exercises
 
             Console.ReadLine();
             */
-
+            /*
             // Exercise 2 - Addition
 
             int x = 74;
@@ -75,6 +75,48 @@ namespace COMP6211exercises
             }
             Console.WriteLine();
 
+
+            // Exercise 6 - circle area and perimeter
+
+            double radius = 7.5;
+            double pi = Math.PI;
+            double area = pi * (radius * radius);
+            double perim = pi * radius * 2;
+
+            Console.WriteLine();
+            Console.WriteLine("A circle with radius 7.5 has an area of {0} and a perimeter of {1}.", 
+                area, perim);
+            Console.WriteLine();
+            */
+
+
+            // Exercise 7 - swap two variables
+
+            Console.WriteLine();
+            Console.WriteLine("This program starts with two variables in alpha order, " +
+                "then it swaps the order of the two variables.");
+            Console.WriteLine();
+            Console.WriteLine("Press enter.");
+            Console.ReadLine();
+
+            string variables = "  X  " + "  Y  ";
+            Console.WriteLine("The two variables are: " + variables);
+            Console.WriteLine();
+            Console.WriteLine("Press enter again to swap the order of the variables.");
+            Console.WriteLine();
+            Console.ReadLine();
+
+            char[] charArray = variables.ToCharArray();
+            Array.Reverse(charArray);
+            /*
+            foreach (char variablesChar in charArray)
+            {
+                Console.Write(variablesChar);
+            }
+            */
+            Console.Write("The variables are now: ");
+            Console.WriteLine(charArray);
+            Console.ReadLine();
         }
     }
 }
