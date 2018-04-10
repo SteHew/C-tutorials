@@ -10,167 +10,130 @@ namespace COMP6211exercises
     {
         static void Main(string[] args)
         {
-            /*
-            // Exercise1 - Hello greeting
+            // Create a numeric array of size 10 to hold course IDs
+
+            int[] courseIDs = new int[10];
+
+            courseIDs[0] = 6001;
+            courseIDs[1] = 6002;
+            courseIDs[2] = 6003;
+            courseIDs[3] = 6004;
+            courseIDs[4] = 6005;
+            courseIDs[5] = 6006;
+            courseIDs[6] = 6007;
+            courseIDs[7] = 6008;
+            courseIDs[8] = 6009;
+            courseIDs[9] = 6010;
+
 
             Console.WriteLine();
-            Console.WriteLine("Hello.");
-            Console.WriteLine();
-            Console.WriteLine("My name is Stephen Hewlett.");
-
-            Console.ReadLine();
-            */
-
-            /*
-            // Exercise 2 - Addition
-
-            int x = 74;
-            int y = 36;
-            int z = x + y;
-
-            Console.WriteLine();
-            Console.WriteLine("The sum of {0} plus {1} is: {2}", x, y, z);
-            Console.ReadLine();
-
-            
-            // Exercise 3 - Division
-
-            int a = 50;
-            int b = 3;
-            int c = a / b;
-
-            Console.WriteLine("{0} divided by {1} results in {2} with a remainder of 2.", a, b, c);
-            Console.ReadLine();
+            Console.WriteLine("The length of the Course IDs array is " + courseIDs.Length);
             Console.WriteLine();
 
-
-            // Exercise 4 - Product of user defined numbers
-
-            Console.Write("Please enter a number: ");
-            int firstNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-
-            Console.Write("Now enter a second number: ");
-            int secondNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-
-            int product = firstNumber * secondNumber;
-
-            Console.WriteLine("When the two numbers are multiplied, the answer is: " + product);
-            Console.ReadLine();
-            Console.WriteLine();
-
-
-            // Exercise 5 - multiplication table
-
-            Console.Write("Please enter another number: ");
-            int anyNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-
-            Console.WriteLine("Here is a multiplication table for the number you entered:");
-            Console.WriteLine();
-
-            for (int i = 1; i <= 10; i++)
+            Console.WriteLine("Course ID numbers: ");
+            foreach (var item in courseIDs)
             {
-                Console.WriteLine("{0} x {1} = {2}", anyNumber, i, anyNumber * i);
+                Console.Write(item.ToString() + "\t");
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+
+            int[] courseNums = new int[10];
+            Array.Copy(courseIDs, courseNums, 10);
+
+            Console.WriteLine("Course ID numbers in copy array: ");
+            foreach (var item in courseNums)
+            {
+                Console.Write(item.ToString() + "\t");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.ReadLine();
+
+            Console.WriteLine("The array type for Course IDs is: " + courseIDs.GetType());
+            Console.WriteLine();
+            Console.ReadLine();
+
+            Console.WriteLine("The value of index 5 in Course IDs is: " + courseIDs[5]);
+            Console.WriteLine();
+            Console.ReadLine();
+
+            // Search for a user defined course ID number
+
+            Console.WriteLine();
+            Console.Write("Enter the Course ID Number to search: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            bool found = false;
+            for (int i = 0; i < courseIDs.Length; i++)
+            {
+                if (num == courseIDs[i])
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                Console.WriteLine("Element found");
+            else
+                Console.WriteLine("Element not found");
+            Console.WriteLine();
+            Console.ReadLine();
+
+
+            // Reverse the array
+
+            Array.Reverse(courseIDs);
+            Console.WriteLine("Reversed array: ");
+
+            foreach (int i in courseIDs)
+            {
+                Console.Write(i + "\t");
             }
             Console.WriteLine();
             Console.ReadLine();
 
 
-            // Exercise 6 - circle area and perimeter
-
-            double radius = 7.5;
-            double pi = Math.PI;
-            double area = pi * (radius * radius);
-            double perim = pi * radius * 2;
+            // Change the value at location 5
 
             Console.WriteLine();
-            Console.WriteLine("A circle with radius 7.5 has an area of {0} and a perimeter of {1}.", 
-                area, perim);
-            Console.WriteLine();
-            Console.ReadLine();
+
+            Console.WriteLine(courseIDs.SetValue(4, 6010));
 
 
-            // Exercise 7 - swap two variables
+            // Create a string array containing 10 course names
 
-            Console.WriteLine();
-            Console.WriteLine("This program starts with two variables in alpha order, " +
-                "then it swaps the order of the two variables.");
-            Console.WriteLine();
-            Console.WriteLine("Press enter.");
-            Console.ReadLine();
-
-            string variables = "  X  " + "  Y  ";
-            Console.WriteLine("The two variables are: " + variables);
-            Console.WriteLine();
-            Console.WriteLine("Press enter again to swap the order of the variables.");
-            Console.WriteLine();
-            Console.ReadLine();
-
-            char[] charArray = variables.ToCharArray();
-            Array.Reverse(charArray);
-            
-            //foreach (char variablesChar in charArray)
-            //{
-            //    Console.Write(variablesChar);
-            //}
-            
-            Console.Write("The order of the variables is now: ");
-            Console.WriteLine(charArray);
-            Console.ReadLine();
-
-
-            // Exercise 8 - user defined number is positive or negative
+            string[] courseNames = new string[] { "IT Essentials", "Infrastructure", "Prof Skills", "Programming",
+                "Networking", "Statistics", "Software", "Multimedia", "Web Development", "Business Systems"};
 
             Console.WriteLine();
-            Console.Write("Please type any number and press enter to find out if " +
-                "it is a positive or a negative number: ");
-            float userNumber = float.Parse(Console.ReadLine());
+            Console.WriteLine("The length of the Course Names array is " + courseNames.Length);
             Console.WriteLine();
 
-            if (userNumber > 0) Console.WriteLine("It is a positive number.");
-
-            else Console.WriteLine("It is a negative number.");
-            Console.WriteLine();
-            Console.ReadLine();
-
-            
-            // Exercise 9 - the greatest of 3 numbers
-
-            Console.WriteLine();
-            Console.Write("Please type a number and press enter: ");
-            float Num1 = float.Parse(Console.ReadLine());
-
-            Console.WriteLine();
-            Console.Write("Please type another number and press enter: ");
-            float Num2 = float.Parse(Console.ReadLine());
-
-            Console.WriteLine();
-            Console.Write("Please type a third number and press enter: ");
-            float Num3 = float.Parse(Console.ReadLine());
-
-            if (Num1 > Num2 & Num1 > Num3) Console.WriteLine("{0} is the greatest of the 3 numbers.", Num1);
-            Console.WriteLine();
-            if (Num2 > Num1 & Num2 > Num3) Console.WriteLine("{0} is the greatest of the 3 numbers.", Num2);
-            else Console.WriteLine("{0} is the greatest of the 3 numbers.", Num3);
-            Console.WriteLine();
-            Console.ReadLine();
-            */
-
-            // Exercise 10 - one dimensional array populated with random numbers
-
-            Console.WriteLine();
-            Console.WriteLine("Here are 5 random numbers between 0 and 500: ");
-            Console.WriteLine();
-
-            int[] array1 = new int[5];
-            Random randNums = new Random();
-            for (int i = 0; i <= 4; i++)
+            Console.WriteLine("Items in Course Names array:");
+            foreach (var item in courseNames)
             {
-                array1[i] = randNums.Next(1, 501);
-                Console.WriteLine(array1[i]);
+                Console.WriteLine(item.ToString());
             }
+            Console.WriteLine();
+            Console.ReadLine();
+
+            string[] courseTitles = new string[10];
+            Array.Copy(courseNames, courseTitles, 10);
+
+            Console.WriteLine("Items in Course Titles array: ");
+            foreach (var item in courseTitles)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+
+            Console.WriteLine("The array type for Course Names is: " + courseNames.GetType());
+            Console.WriteLine();
+            Console.ReadLine();
+
+            Console.WriteLine("The value of index 5 in Course Names is: " + courseNames[5]);
             Console.WriteLine();
             Console.ReadLine();
         }
